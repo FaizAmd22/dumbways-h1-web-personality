@@ -1,0 +1,51 @@
+body {
+    color: #21252B;
+}
+
+.container {
+    width: 400px; 
+    padding: 20px; 
+    margin: auto; 
+    border-radius: 10px; 
+    box-shadow: 2px 2px 5px #000000;
+}
+
+.container > img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px #000000;
+}
+
+.container > p {
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+.card {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.card > a {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: black;
+    transition: all ease 0.3s;
+}
+
+.card > a:hover {
+    color: white;
+    background-color: #454646;
+    border-radius: 30px;
+}
+
+.card > a > p {
+    margin-left: 10px;
+}
+
