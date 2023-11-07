@@ -1,55 +1,226 @@
-body {
-    color: #21252B;
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    color: #111727;
+    font-family: 'DM Sans', sans-serif;
+    background-color: #E2E6EA;
+}
+
+nav {
+    height: 100px;
+    display: flex;
+    background-color: #F4F3F3;
+    margin-bottom: 100px;
+    box-shadow: 2px 2px 5px #CACBC9;
+}
+.nav-container {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    width: 85%;
+}
+.logo > a > img {
+    width: 80px;
+    margin-right: 50px;
+}
+.navlink {
+    width: 50%;
+}
+.navlink > ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+}
+.navlink > ul > li > a {
+    text-decoration: none;
+    color: #111727;
+    transition: all ease 0.3s;
+}
+.navlink > ul > li > a:hover {
+    font-weight: bolder;
+}
+.contact {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.contact > a {
+    background-color: #545557;
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    transition: all ease 0.3s;
+}
+.contact > a:hover {
+    background-color: #F4F3F3;
+    box-shadow: 2px 2px 5px #CACBC9;
+    color: #111727;
+}
+
 
 .container {
-    width: 400px; 
-    padding: 20px; 
+    max-width: 80%; 
+    padding: 40px; 
     margin: auto; 
-    border-radius: 10px; 
-    box-shadow: 2px 2px 5px #000000;
-}
-
-.container > img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 2px 2px 5px #000000;
-}
-
-.container > p {
-    margin-top: -20px;
-    margin-bottom: 40px;
-}
-
-.card {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    height: 40px;
-    margin-top: 20px;
-}
-
-.card > a {
+    border-radius: 10px;
+    box-shadow: 2px 10px 30px #545557;
+    background-color: white;
     display: flex;
     align-items: center;
-    font-size: 20px;
-    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    max-width: 60%;
+    padding: 20px;
+}
+
+.text h1 {
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+.text p {
+    text-align: justify;
+}
+
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+.buttons > a {
     text-decoration: none;
-    color: black;
+    color: #111727;
+    font-weight: bolder;
+}
+.buttons > a.button-contact,
+.buttons > a.button-download {
+    background-color: #111727;
+    color: white;
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    border-radius: 40px;
+    transition: all ease-in-out 0.3s;
+}
+.buttons > a.button-download {
+    width: 140px;
+    background-color: white;
+    color: #111727;
+}
+.buttons > a.button-download:hover {
+    box-shadow: 2px 2px 5px #545557;
+}
+.buttons > a.button-contact:hover,
+.sosmed > a:hover {
+    background-color: white;
+    box-shadow: 2px 2px 5px #111727;
+    color: #111727;
+}
+
+
+.sosmed {
+    display: flex;
+    gap: 30px;
+    margin-top: 80px;
+}
+.sosmed > a {
+    display: flex;
+    font-size: 27px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #111727;
+    color: white;
+    border-radius: 50%;
     transition: all ease 0.3s;
 }
 
-.card > a:hover {
-    color: white;
-    background-color: #454646;
-    border-radius: 30px;
-}
 
-.card > a > p {
-    margin-left: 10px;
-}
-
-table {
-    width: 100%;
+.card {
+    max-width: 30%;
+    margin: auto;
     text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 1px 5px 30px #CACBC9;
+}
+.card h1, 
+.card p {
+    padding: 10px;
+}
+.card h1 {
+    font-size: 28px;
+    font-weight: bolder;
+}
+.card p {
+    height: 35px;
+    margin-top: -20px;
+
+}
+.card img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+
+/* Contact */
+.form {
+    display: flex;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+}
+.form-container > h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+.form-container > label {
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+.form-container > input,
+.form-container > select {
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 5px #CACBC9;
+}
+.form-container > textarea {
+    padding: 10px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px #CACBC9;
+}
+
+.submit {
+    margin-top: 10px;
+    display: flex;
+    justify-content: end;
+}
+.button-submit {
+    text-align: center;
+    text-decoration: none;
+    margin-top: 40px;
+    background-color: #111727;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 40px;
+    font-weight: bolder;
 }
