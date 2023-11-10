@@ -1,0 +1,59 @@
+<html>
+    <header>
+        <title>Contact Me</title>
+        <!-- My style -->
+        <link rel="stylesheet" href="styles/index.module.css">
+        <link rel="stylesheet" href="styles/contact.module.css">
+    </header>
+
+    <body>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/brandred.png" alt="Dumbways">
+                    </a>
+                </div>
+                <div class="navlink">
+                    <ul>
+                        <li>
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li>
+                            <a href="">My Projects</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <a href="contact.html">Contact Me</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="form">
+            <div class="form-container">
+                <h1>get in touch</h1>
+                <label for="inputName">Name</label>
+                <input type="text" name="name" id="inputName"/>
+                <label for="inputEmail">Email</label>
+                <input type="email" name="email" id="inputEmail"/>
+                <label for="inputPhone">Phone Number</label>
+                <input type="number" name="phone" id="inputPhone"/>
+                <label for="inputSubject">Subject</label>
+                <select id="inputSubject">
+                    <option value=""></option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Backend Developer">Backend Developer</option>
+                    <option value="Fullstack Developer">Fullstack Developer</option>
+                </select>
+                <label for="inputMessage">Your Message</label>
+                <textarea id="inputMessage"></textarea>
+                <div class="submit">
+                    <button type="button" class="button-submit" onclick="submitButton()">submit</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
+    </body>
+</html>
