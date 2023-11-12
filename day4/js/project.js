@@ -61,6 +61,7 @@ function submitProject(e) {
         dataProjects.push(project)
         localStorage.setItem("Projects", JSON.stringify(dataProjects))
         renderProject()
+        alert("Project has been added!")
     }
 }
 
