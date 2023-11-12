@@ -12,6 +12,7 @@
 }
 .projectDetailContainer > p {
     text-align: justify;
+    margin-bottom: 50px;
 }
 
 .projectDetailContent {
