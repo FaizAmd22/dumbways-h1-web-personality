@@ -93,6 +93,11 @@ function submitProject(e) {
     }
 }
 
+function deleteData(data) {
+    delete dataProjects[data]
+    console.log(dataProjects)
+}
+
 
 // function untuk menampilkan card saat data berhasil ditambahkan
 function renderProject() {
@@ -121,7 +126,7 @@ function renderProject() {
                 </div>
                 <div class="btnGroup">
                     <button class="btnEdit">Edit</button>
-                    <button class="btnDelete">Delete</button>
+                    <button onclick="deleteData(${index})" class="btnDelete">Delete</button>
                 </div>
             </div>
         </div>`
