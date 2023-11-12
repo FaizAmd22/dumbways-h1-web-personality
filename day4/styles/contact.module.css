@@ -13,19 +13,19 @@
     font-weight: bolder;
     margin-bottom: 40px;
 }
-.form-container > label {
+label {
     font-weight: bold;
     margin-bottom: 7px;
 }
-.form-container > input,
-.form-container > select {
+input,
+select {
     margin-bottom: 30px;
     padding: 10px;
     border-radius: 10px;
     border: none;
     box-shadow: 2px 2px 5px #CACBC9;
 }
-.form-container > textarea {
+textarea {
     padding: 10px;
     height: 100px;
     border: none;
@@ -50,6 +50,7 @@
     transition: all ease 0.3s;
     border: none;
     box-shadow: 2px 2px 5px #545557;
+    font-size: 16px;
 }
 .button-submit:hover {
     background-color: white;

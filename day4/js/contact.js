@@ -44,3 +44,7 @@ function submitButton() {
         a.click()
     }
 }
+
+if (hours.lengt === 0) {
+    
+}
