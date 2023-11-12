@@ -77,7 +77,7 @@ function renderProject() {
                     <a href="projectDetail.html" target="_blank">${dataProjects[index].title}</a>
                 </h1>
                 <div class="detailProjectContent">
-                    1 bulan | Faizhal Ahmad
+                    durasi : 1 bulan
                 </div>
                 <p>
                     ${dataProjects[index].description}

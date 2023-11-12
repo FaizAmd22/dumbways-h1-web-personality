@@ -57,3 +57,10 @@ textarea {
     color: #111727;
     box-shadow: 2px 2px 5px #111727;
 }
+
+
+@media (max-width: 900px) {
+    .form-container {
+        width: 90%;
+    }
+}
