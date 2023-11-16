@@ -1,0 +1,50 @@
+.containerCard {
+    width: 85%;
+    margin: auto;
+}
+.containerCard h1 {
+    text-align: center;
+}
+.testimonials {
+    display: flex;
+    margin-top: 50px;
+    gap: 20px;
+}
+.testimonial {
+    width: 30%;
+    height: 400px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.testimonial img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+.quote {
+    overflow: hidden;
+}
+.author {
+    font-weight: bold;
+    text-align: end;
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .containerCard {
+        margin-top: 50px;
+        width: 90%;
+    }
+    .testimonials {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .testimonial {
+        width: 40%;
+    }
+}

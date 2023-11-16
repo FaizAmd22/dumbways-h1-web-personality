@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- My style -->
+    <link rel="stylesheet" href="styles/contact.module.css">
+    <link rel="stylesheet" href="styles/index.module.css">
+    <link rel="stylesheet" href="styles/project.module.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/brandred.png" alt="Dumbways">
+                </a>
+            </div>
+            <div class="navlink">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="project.html">My Projects</a>
+                    </li>
+                    <li>
+                        <a href="testimonial.html">Testimonial</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact">
+                <a href="contact.html">Contact Me</a>
+            </div>
+            <i class="fa-solid fa-bars" id="hamburger" onclick="openHamburger()"></i>
+        </div>
+    </nav>
+    <div class="hamburgerContainer">
+        <a href="index.html">Home</a>
+        <a href="project.html" class="active">My Projects</a>
+        <a href="contact.html">Contact Me</a>
+        <a href="testimonial.html">Testimonial</a>
+    </div>
+
+    <div class="form">
+        <div class="form-container">
+            <h1>add my project</h1>
+            <div class="projectName">
+                <label for="inputName">Project Name</label>
+                <input type="text" name="inputName" id="inputName"/>
+            </div>
+            <div class="date">
+                <div class="startDate">
+                    <label for="inputStartDate">Start Date</label>
+                    <input type="text" name="inputStartDate" id="inputStartDate"/>
+                </div>
+                <div class="endDate">
+                    <label for="inputEndDate">End Date</label>
+                    <input type="text" name="inputEndDate" id="inputEndDate"/>
+                </div>
+            </div>
+            <div class="desc">
+                <label for="inputDesc">Description</label>
+                <textarea id="inputDesc"></textarea>
+            </div>
+            <div class="tech">
+                <label>Technologies</label>
+                <div class="techChecbox">
+                    <div class="inputCheckbox">
+                        <input type="checkbox" id="nodeJs" name="nodeJs">
+                        <label for="nodeJs"> Node Js</label>
+                    </div>
+                    <div class="inputCheckbox">
+                        <input type="checkbox" id="nextJs" name="nextJs">
+                        <label for="nextJs"> Next Js</label>
+                    </div>
+                    <div class="inputCheckbox">
+                        <input type="checkbox" id="reactJs" name="reactJs">
+                        <label for="reactJs"> React Js</label>
+                    </div>
+                    <div class="inputCheckbox">
+                        <input type="checkbox" id="typeScript" name="typeScript">
+                        <label for="typeScript"> TypeScript</label>
+                    </div>
+                </div>
+            </div>
+            <div class="uploadImage">
+                <label for="upload">Upload Image</label>
+                <div class="inputImage">
+                    <input type="file" name="Image" id="upload" accept=".jpg, .png, .jpeg">
+                    <i class="fa-solid fa-paperclip"></i>
+                </div>
+            </div>
+            <div class="submit">
+                <button type="button" class="button-submit" onclick="submitProject(event)">submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="projectContainer">
+        <h1>My Project</h1>
+        <div class="projects" id="projects">
+        </div>
+    </div>
+
+
+    <script src="js/navbar.js"></script>
+    <script src="js/project.js"></script>
+</body>
+</html>
