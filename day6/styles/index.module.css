@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,200;9..40,400;9..40,800;9..40,1000&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body {
+    color: #111727;
+    background-color: #E3E7EB;
+}
+
+nav {
+    height: 100px;
+    display: flex;
+    background-color: #F4F3F3;
+    box-shadow: 2px 2px 5px #CACBC9;
+    margin-bottom: 50px;
+
+}
+.nav-container {
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    width: 85%;
+}
+.logo > a > img {
+    width: 80px;
+    margin-right: 50px;
+}
+.navlink {
+    width: 100%;
+}
+.navlink > ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+}
+.navlink > ul > li > a {
+    text-decoration: none;
+    color: #111727;
+    transition: all ease 0.3s;
+}
+.navlink > ul > li > a:hover {
+    font-weight: bolder;
+}
+.contact {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.contact > a {
+    background-color: #545557;
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    transition: all ease 0.3s;
+}
+.contact > a:hover {
+    background-color: #F4F3F3;
+    box-shadow: 2px 2px 5px #CACBC9;
+    color: #111727;
+}
+#hamburger {
+    display: none;
+}
+.hamburgerContainer {
+    display: none;
+}
+
+.hamburgerContainer .active {
+    background-color: white;
+}
+
+
+
+.contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.container {
+    max-width: 80%; 
+    padding: 40px; 
+    margin: auto; 
+    border-radius: 10px;
+    box-shadow: 2px 10px 30px #545557;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    max-width: 60%;
+    padding: 20px;
+}
+
+.text h1 {
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+.text p {
+    text-align: justify;
+}
+
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+.buttons > a {
+    text-decoration: none;
+    color: #111727;
+    font-weight: bolder;
+}
+.buttons > a.button-contact,
+.buttons > a.button-download {
+    background-color: #111727;
+    color: white;
+    padding: 10px;
+    width: 80px;
+    text-align: center;
+    border-radius: 40px;
+    transition: all ease-in-out 0.3s;
+}
+.buttons > a.button-download {
+    width: 140px;
+    background-color: white;
+    color: #111727;
+}
+.buttons > a.button-download:hover {
+    box-shadow: 2px 2px 5px #545557;
+}
+.buttons > a.button-contact:hover,
+.sosmed > a:hover {
+    background-color: white;
+    box-shadow: 2px 2px 5px #111727;
+    color: #111727;
+}
+
+
+.sosmed {
+    display: flex;
+    gap: 30px;
+    margin-top: 80px;
+}
+.sosmed > a {
+    display: flex;
+    font-size: 27px;
+    padding: 10px;
+    text-decoration: none;
+    background-color: #111727;
+    color: white;
+    border-radius: 50%;
+    transition: all ease 0.3s;
+}
+
+
+.card {
+    max-width: 30%;
+    margin: auto;
+    text-align: center;
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 1px 5px 30px #CACBC9;
+}
+.card h1, 
+.card p {
+    padding: 10px;
+}
+.card h1 {
+    font-size: 28px;
+    font-weight: bolder;
+}
+.card p {
+    height: 35px;
+    margin-top: -20px;
+
+}
+.card img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+@media only screen and (max-width: 900px) {
+    .nav-container {
+        width: 95%;
+    }
+    .logo > a > img {
+        width: 60px;
+        margin-right: 30px;
+    }
+    .navlink > ul {
+        gap: 30px;
+    }
+    .container {
+        flex-wrap: wrap;
+    }
+    .content {
+        max-width: 100%;
+    }
+    .card {
+        max-width: 80%;
+        margin-top: 50px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navlink > ul,
+    .contact {
+        display: none;
+    }
+    nav {
+        margin-bottom: 0;
+    }
+    #hamburger {
+        display: flex;
+        font-size: 25px;
+        cursor: pointer;
+    }
+    .hamburgerContainer.responsive {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        background-color: #545557;
+    }
+    .hamburgerContainer > a {
+        text-decoration: none;
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+    }
+    .hamburgerContainer .active {
+        color: #111727;
+        font-weight: bolder;
+        box-shadow: 2px 2px 3px #111727;
+    }
+    .contents {
+        margin-top: 50px;
+    }
+}

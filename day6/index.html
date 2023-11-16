@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<header>
+    <title>Personal Web</title>
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- My style -->
+    <link rel="stylesheet" href="styles/index.module.css">
+</header>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/img/brandred.png" alt="Dumbways">
+                </a>
+            </div>
+            <div class="navlink">
+                <ul>
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="project.html">My Projects</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="contact">
+                <a href="contact.html">Contact Me</a>
+            </div>
+            <i class="fa-solid fa-bars" id="hamburger" onclick="openHamburger()"></i>
+        </div>
+    </nav>
+    <div class="hamburgerContainer">
+        <a href="index.html" class="active">Home</a>
+        <a href="project.html">My Projects</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
+
+    <div class="contents">
+        <div class="container">
+            <div class="content">
+                <div class="text">
+                    <h1>Hi! Welcome to my hut</h1>
+                    <p>Saya adalah lulusan SMAN 1 Jatiwangi angkatan 2019 dan sempat menempuh pendidikan di STTB selama 2 semester. Saya memiliki minat berkarir sebagai programmer.</p>
+                </div>
+
+                <div class="buttons">
+                    <a class="button-contact" href="mailto:ahmadfaizhal8@gmail.com">contact</a>
+                    <a class="button-download" href="https://drive.google.com/uc?export=download&id=1uIFtkZhLLciEVDEOE3XCBA3rlvjCys3Q">download CV <i class="fa-solid fa-download"></i></a>
+                </div>
+
+                <div class="sosmed">
+                    <a href="https://www.linkedin.com/in/faizhal-ahmad-3940b4206/">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/fzhal_a2/">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://web.facebook.com/faizhal.ahmad.96/?locale=id_ID">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/FaizhalSiddiq">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="assets/img/01.jpg" alt="foto profile">
+                <h1>Faizhal Ahmad Siddiq</h1>
+                <p>Calon Fullstack Developer</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/navbar.js"></script>
+</body>
+</html>
