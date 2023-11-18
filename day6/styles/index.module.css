@@ -246,4 +246,7 @@ nav {
     .contents {
         margin-top: 50px;
     }
+    .sosmed {
+        justify-content: center;
+    }
 }

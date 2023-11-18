@@ -97,7 +97,6 @@ input[type="file"]::-webkit-file-upload-button{
     margin-top: 50px;
 }
 .projects {
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -108,7 +107,6 @@ input[type="file"]::-webkit-file-upload-button{
     box-shadow: 2px 2px 10px #c2c2c2;
     background-color: white;
     padding: 15px;
-    border-radius: 10px;
 }
 .projectImage img {
     width: 100%;
@@ -186,6 +184,9 @@ input[type="file"]::-webkit-file-upload-button{
     }
 }
 @media only screen and (max-width: 900px) {
+    .projects {
+        justify-content: center;
+    }
     .projectCard {
         width: 40%;
     }
@@ -194,5 +195,10 @@ input[type="file"]::-webkit-file-upload-button{
     }
     .projectContainer a {
         font-size: 20px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .projectCard {
+        width: 100%;
     }
 }

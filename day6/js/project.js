@@ -94,8 +94,8 @@ function submitProject(e) {
 }
 
 function deleteData(data) {
-    delete dataProjects[data]
-    console.log(dataProjects)
+    dataProjects = dataProjects.filter((e) => e !== dataProjects[data])
+    renderProject()
 }
 
 

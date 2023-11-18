@@ -1,16 +1,16 @@
 class Testimonial {
-    constructor(name, review, image) {
-        this.name = name
-        this.review = review
+    constructor(author, quotes, image) {
+        this.author = author
+        this.quotes = quotes
         this.image = image
     }
 
     html() {
         return `
-            <div class="testimonial">
+            <div class="testimonial animate__animated animate__fadeIn">
                 <img src="${this.image}" class="profile-testimonial" />
-                <p class="quote">"${this.review}"</p>
-                <p class="author">- ${this.name}</p>
+                <p class="quote">"${this.quotes}"</p>
+                <p class="author">- ${this.author}</p>
             </div>
         `
     }
