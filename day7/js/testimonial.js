@@ -22,7 +22,7 @@ const testimonial1 = new Testimonial(
     "https://i.pinimg.com/564x/f9/85/de/f985debe6c7a2e7a7b630bffc1548e07.jpg"
 )
 const testimonial2 = new Testimonial(
-    "Mr. White",
+    "Professor",
     "I cannot teach anybody anything; I can only make them think.",
     "https://i.pinimg.com/564x/e2/72/bf/e272bfec9361ae5dee632b7b9137c5a8.jpg"
 )
