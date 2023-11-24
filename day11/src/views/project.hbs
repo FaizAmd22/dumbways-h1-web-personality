@@ -97,18 +97,20 @@
 
                                         <!-- Icon -->
                                         <div class="mt-4 my-4 my-lg-0 d-flex gap-2">
-                                            {{#if this.nodeJs}}
-                                                <i class='fa-brands fa-node-js fs-3'></i>
-                                            {{/if}}
-                                            {{#if this.nextJs}}
-                                                <img src='assets/icons/nextJs.png' alt='nextJs' style='width: 26px; height: 26px;'>
-                                            {{/if}}
-                                            {{#if this.reactJs}}
-                                                <i class='fa-brands fa-react fs-3'></i>
-                                            {{/if}}
-                                            {{#if this.typescript}}
-                                                <img src='assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
-                                            {{/if}}
+                                            {{#each tech}}
+                                                {{#if this.node}}
+                                                    <i class='fa-brands fa-node-js fs-3'></i>
+                                                {{/if}}
+                                                {{#if this.next}}
+                                                    <img src='/assets/icons/nextJs.png' alt='nextJs' style='width: 26px; height: 26px;'>
+                                                {{/if}}
+                                                {{#if this.react}}
+                                                    <i class='fa-brands fa-react fs-3'></i>
+                                                {{/if}}
+                                                {{#if this.typescript}}
+                                                    <img src='/assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
+                                                {{/if}}
+                                            {{/each}}
                                         </div>
                                     </div>
                                     

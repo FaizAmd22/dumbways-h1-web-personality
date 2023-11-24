@@ -28,7 +28,6 @@ app.get('/projects/:id', projectDetail)
 app.get('/testimonial', testimonial)
 
 
-
 app.listen(port, () => {
     console.log(`Server berjalan di port ${port}`)
 })

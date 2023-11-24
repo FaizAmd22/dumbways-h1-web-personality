@@ -71,22 +71,35 @@
                         <div class="col-12">
                             <h3>Technologies</h3>
                             <div class="row">
-                                <div class="col-6 d-flex gap-3">
-                                    <i class="fa-brands fa-react"></i>
-                                    <p>React Js</p>
-                                </div>
-                                <div class="col-6 d-flex gap-3">
-                                    <i class="fa-brands fa-node-js"></i>
-                                    <p>Node Js</p>
-                                </div>
-                                <div class="col-6 d-flex gap-3">
-                                    <i class="fa-solid fa-fire"></i>
-                                    <p>Firebase</p>
-                                </div>
-                                <div class="col-6 d-flex gap-3">
-                                    <i class="fa-brands fa-square-js"></i>
-                                    <p>Javascript</p>
-                                </div>
+                            {{#each data.tech}}
+                                {{#if this.node}}
+                                    <div class="col-6 d-flex gap-3">
+                                            <i class='fa-brands fa-node-js fs-3'></i>
+                                            <p>Node Js</p>
+                                    </div>
+                                {{/if}}
+
+                                {{#if this.next}}
+                                    <div class="col-6 d-flex gap-3">
+                                            <img src='/assets/icons/nextJs.png' alt='nextJs' style='width: 26px; height: 26px;'>
+                                            <p>Next Js</p>
+                                    </div>
+                                {{/if}}
+
+                                {{#if this.react}}
+                                    <div class="col-6 d-flex gap-3">
+                                            <i class='fa-brands fa-react fs-3'></i>
+                                            <p>React Js</p>
+                                    </div>
+                                {{/if}}
+
+                                {{#if this.typescript}}
+                                    <div class="col-6 d-flex gap-3">
+                                            <img src='/assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
+                                            <p>Typescript</p>
+                                    </div>
+                                {{/if}}
+                            {{/each}}
                             </div>
                         </div>
                     </div>
@@ -98,3 +111,8 @@
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+
+
+
+

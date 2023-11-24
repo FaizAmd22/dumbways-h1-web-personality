@@ -2,10 +2,12 @@ let datas = [
     {
         projectName: "Absensi App",
         desc: "Absensi app using ReactJs, ExpressJs and MYSQL",
-        nodeJs: true,
-        nextJs: true,
-        reactJs: true,
-        typescript: true,
+        tech: [
+            {node: true},
+            {next: false},
+            {react: true},
+            {typescript: false}
+        ],
         duration: "2 months",
         startDate: "12 Jan 2023",
         endDate: "20 Mar 2023"
@@ -13,10 +15,12 @@ let datas = [
     {
         projectName: "Simple Cart",
         desc: "Simple Cart using VueJs, Bootstrap and JQuery",
-        nodeJs: false,
-        nextJs: true,
-        reactJs: true,
-        typescript: true,
+        tech: [
+            {node: true},
+            {next: false},
+            {react: true},
+            {typescript: true}
+        ],
         duration: "1 months",
         startDate: "09 Apr 2023",
         endDate: "25 Mei 2023"
@@ -24,11 +28,13 @@ let datas = [
     {
         projectName: "Movie App",
         desc: "Movie app using MERN (MongoDB, ExpressJs, ReactJs and NodeJs) stack",
-        nodeJs: true,
-        nextJs: false,
-        reactJs: true,
-        typescript: true,
-        duration: "1 years",
+        tech: [
+            {node: true},
+            {next: true},
+            {react: true},
+            {typescript: true}
+        ],
+        duration: '1 years',
         startDate: "22 Jun 2023",
         endDate: "02 Jul 2024"
     },
@@ -49,16 +55,19 @@ function addProject(req, res) {
 }
 function addProjectPost(req, res) {
     // const { projectName, startDate, endDate, desc } = req.body
+    let tech = {
+        nodeJs: req.body.nodeJs ? true : false,
+        nextJs: req.body.nextJs ? true : false,
+        reactJs: req.body.reactJs ? true : false,
+        typescript: req.body.typescript ? true : false,
+    }
 
     let data = {
         projectName: req.body.projectName,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         desc: req.body.desc,
-        nodeJs: req.body.nodeJs ? true : false,
-        nextJs: req.body.nextJs ? true : false,
-        reactJs: req.body.reactJs ? true : false,
-        typescript: req.body.typescript ? true : false,
+        tech: [{...tech}],
         duration: ''
     }
 
@@ -68,8 +77,7 @@ function addProjectPost(req, res) {
     let day = Math.floor((getSecEnd - getSecStart) / 1000 / 60 / 60 / 24)
     let month = Math.floor(day / 30)
     let year = Math.floor(month / 12)
-
-    data.duration = `${year} years, ${month} months, ${day} days`
+    
 
     // console.log("name :", data.projectName)
     // console.log("startdate :", data.startDate)
@@ -79,13 +87,20 @@ function addProjectPost(req, res) {
     // console.log("next :", data.nextJs)
     // console.log("react :", data.reactJs)
     // console.log("typescript :", data.typescript)
-    if (!data.projectName) {
-        console.log("nama harus diisi!")
-        res.redirect('/projects/add')
-    } else {
-        console.log(data)
-        res.redirect('/projects')
-    }
+    
+        if (year >= 1) {
+            data.duration = `${year} years`
+            console.log(data)
+            res.redirect('/projects')
+        } else if (month >= 1) {
+            data.duration = `${month} months`
+            console.log(data)
+            res.redirect('/projects')
+        } else if (day >= 1) {
+            data.duration = `${day} days`
+            console.log(data)
+            res.redirect('/projects')
+        }
 }
 function projectDetail(req, res) {
     const { id } = req.params
@@ -95,6 +110,7 @@ function projectDetail(req, res) {
     const duration = datas[id].duration
     const startDate = datas[id].startDate
     const endDate = datas[id].endDate
+    const tech = datas[id].tech
 
 
     const data = {
@@ -103,7 +119,8 @@ function projectDetail(req, res) {
         description,
         duration,
         startDate,
-        endDate
+        endDate,
+        tech
     }
 
     res.render('projectDetail', {data})
