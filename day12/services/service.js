@@ -1,54 +1,54 @@
 const Swal = require('sweetalert2')
 
 let datas = [
-    {
-        projectName: "Absensi App",
-        desc: "Absensi app using ReactJs, ExpressJs and MYSQL",
-        tech: [
-            {
-                node: true,
-                next: false,
-                react: true,
-                typescript: false
-            }
-        ],
-        duration: "2 months",
-        startDate: "12 Jan 2023",
-        endDate: "20 Mar 2023",
-        fileImage: "/assets/img/imageContent1.jpg"
-    },
-    {
-        projectName: "Simple Cart",
-        desc: "Simple Cart using VueJs, Bootstrap and JQuery",
-        tech: [
-            {
-                node: true,
-                next: true,
-                react: true,
-                typescript: false
-            }
-        ],
-        duration: "1 months",
-        startDate: "09 Apr 2023",
-        endDate: "25 Mei 2023",
-        fileImage: "/assets/img/imageContent2.jpg"
-    },
-    {
-        projectName: "Movie App",
-        desc: "Movie app using MERN (MongoDB, ExpressJs, ReactJs and NodeJs) stack",
-        tech: [
-            {
-                node: true,
-                next: true,
-                react: true,
-                typescript: true
-            }
-        ],
-        duration: '1 years',
-        startDate: "22 Jun 2023",
-        endDate: "02 Jul 2024",
-        fileImage: "/assets/img/imageContent3.jpg"
-    },
+    // {
+    //     projectName: "Absensi App",
+    //     desc: "Absensi app using ReactJs, ExpressJs and MYSQL",
+    //     tech: [
+    //         {
+    //             node: true,
+    //             next: false,
+    //             react: true,
+    //             typescript: false
+    //         }
+    //     ],
+    //     duration: "2 months",
+    //     startDate: "12 Jan 2023",
+    //     endDate: "20 Mar 2023",
+    //     fileImage: "/assets/img/imageContent1.jpg"
+    // },
+    // {
+    //     projectName: "Simple Cart",
+    //     desc: "Simple Cart using VueJs, Bootstrap and JQuery",
+    //     tech: [
+    //         {
+    //             node: true,
+    //             next: true,
+    //             react: true,
+    //             typescript: false
+    //         }
+    //     ],
+    //     duration: "1 months",
+    //     startDate: "09 Apr 2023",
+    //     endDate: "25 Mei 2023",
+    //     fileImage: "/assets/img/imageContent2.jpg"
+    // },
+    // {
+    //     projectName: "Movie App",
+    //     desc: "Movie app using MERN (MongoDB, ExpressJs, ReactJs and NodeJs) stack",
+    //     tech: [
+    //         {
+    //             node: true,
+    //             next: true,
+    //             react: true,
+    //             typescript: true
+    //         }
+    //     ],
+    //     duration: '1 years',
+    //     startDate: "22 Jun 2023",
+    //     endDate: "02 Jul 2024",
+    //     fileImage: "/assets/img/imageContent3.jpg"
+    // },
 ]
 
 function home(req, res) {
