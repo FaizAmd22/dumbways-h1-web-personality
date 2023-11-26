@@ -189,36 +189,36 @@ function updateProjectPost(req, res) {
     let month = Math.floor(day / 30)
     let year = Math.floor(month / 12)
 
+    function updateData() {
+        datas[parseInt(data.id)] = {
+            projectName: data.projectName,
+            startDate: data.startDate,
+            endDate: data.endDate,
+            desc: data.desc,
+            tech: data.tech,
+            duration: data.duration,
+            fileImage: data.fileImage
+        }
+    }
 
     if (year >= 1) {
         data.duration = `${year} years`
         console.log(data)
-        updateData(data)
+        updateData()
         res.redirect('/projects')
     } else if (month >= 1) {
         data.duration = `${month} months`
         console.log(data)
-        updateData(data)
+        updateData()
         res.redirect('/projects')
     } else if (day >= 1) {
         data.duration = `${day} days`
         console.log(data)
-        updateData(data)
+        updateData()
         res.redirect('/projects')
     }
 }
 
-function updateData(data) {
-    datas[parseInt(data.id)] = {
-        projectName: data.projectName,
-        startDate: data.startDate,
-        endDate: data.endDate,
-        desc: data.desc,
-        tech: data.tech,
-        duration: data.duration,
-        fileImage: data.fileImage
-    }
-}
 
 function deleteProject(req, res) {
     const { id } = req.params
