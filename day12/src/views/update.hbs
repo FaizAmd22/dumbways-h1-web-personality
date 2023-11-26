@@ -47,9 +47,9 @@
         </div>
     </nav>
 
-    <div class="container d-flex flex-column justify-content-center" style="height: 90vh;">
-        <h1 class="text-center fw-bold text-uppercase mb-5">Add my project</h1>
-        <form class="row mx-auto g-3 needs-validation" novalidate method="post" action="/projects/update">
+    <div class="container d-flex flex-column justify-content-center my-5">
+        <h1 class="text-center fw-bold text-uppercase mt-2 mb-5">Update project</h1>
+        <form class="row mx-auto g-3 needs-validation" novalidate method="post" action="/projects/update" enctype="multipart/form-data">
             {{!-- Id --}}
             <input type="hidden" name="id" value="{{data.id}}">
             <!-- Project Name -->
@@ -118,9 +118,10 @@
             </div>
 
             <!-- Upload Image -->
-            <div class="col-12">
+            <div class="col-12 d-flex flex-column">
                 <label for="upload" class="form-label fw-bold">Upload Image</label>
-                <input type="file" class="form-control shadow-sm" id="upload" required accept=".jpg, .png, .jpeg">
+                <img src="{{data.fileImage}}" alt="" class="w-50 rounded-3 mb-3">
+                <input type="file" class="form-control shadow-sm" id="upload" required accept=".jpg, .png, .jpeg" name="file" disabled>
             </div>
 
             <!-- Button -->

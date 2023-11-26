@@ -77,13 +77,13 @@
                             <div class="row card-body">
                                 <!-- image -->
                                 <div class="col-12 col-lg-5">
-                                    <img src="/assets/img/imageContent1.jpg" alt="imageContent" class="w-100 rounded-2 mb-2 mb-lg-0">
+                                    <img src="{{this.fileImage}}" alt="imageContent" class="w-100 rounded-2 mb-2 mb-lg-0">
                                 </div>
 
                                 <div class="col d-flex flex-column">
                                     <div class="order-lg-2">
                                         <!-- Judul card -->
-                                        <a class="card-title text-decoration-none fw-bold text-capitalize" href="/projects/details{{@index}}" target="_blank">
+                                        <a class="card-title text-decoration-none fw-bold text-capitalize" href="/projects/details/{{@index}}" target="_blank">
                                             <h2>{{this.projectName}}</h2>
                                         </a>
 

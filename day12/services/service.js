@@ -1,3 +1,5 @@
+const Swal = require('sweetalert2')
+
 let datas = [
     {
         projectName: "Absensi App",
@@ -8,7 +10,8 @@ let datas = [
         typescript: false,
         duration: "2 months",
         startDate: "12 Jan 2023",
-        endDate: "20 Mar 2023"
+        endDate: "20 Mar 2023",
+        fileImage: "/assets/img/imageContent1.jpg"
     },
     {
         projectName: "Simple Cart",
@@ -19,7 +22,8 @@ let datas = [
         typescript: false,
         duration: "1 months",
         startDate: "09 Apr 2023",
-        endDate: "25 Mei 2023"
+        endDate: "25 Mei 2023",
+        fileImage: "/assets/img/imageContent2.jpg"
     },
     {
         projectName: "Movie App",
@@ -30,7 +34,8 @@ let datas = [
         typescript: true,
         duration: '1 years',
         startDate: "22 Jun 2023",
-        endDate: "02 Jul 2024"
+        endDate: "02 Jul 2024",
+        fileImage: "/assets/img/imageContent3.jpg"
     },
 ]
 
@@ -49,27 +54,36 @@ function addProject(req, res) {
 }
 function addProjectPost(req, res) {
     // const { projectName, startDate, endDate, desc } = req.body
+    validationInput(req, res)
+    const reqs = req.body
+    const getSecStart = new Date(reqs.startDate).getTime()
+    const getSecEnd = new Date(reqs.endDate).getTime()
+    if (!req.file) {
+        res.status(400).send({
+            status: false,
+            data: "Image can't be empty!",
+        })      
+    }
+
     let data = {
         projectName: req.body.projectName,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         desc: req.body.desc,
-        nodeJs: req.body.nodeJs ? true : false,
-        nextJs: req.body.nextJs ? true : false,
-        reactJs: req.body.reactJs ? true : false,
+        node: req.body.nodeJs ? true : false,
+        next: req.body.nextJs ? true : false,
+        react: req.body.reactJs ? true : false,
         typescript: req.body.typescript ? true : false,
-        duration: ''
+        duration: '',
+        fileImage: req.file.path
     }
 
-    let getSecStart = new Date(data.startDate).getTime()
-    let getSecEnd = new Date(data.endDate).getTime()
+    data.fileImage = data.fileImage.substring(25)
 
     let day = Math.floor((getSecEnd - getSecStart) / 1000 / 60 / 60 / 24)
     let month = Math.floor(day / 30)
     let year = Math.floor(month / 12)
     
-
-    // console.log("name :", data.projectName)
     // console.log("startdate :", data.startDate)
     // console.log("enddate :", data.endDate)
     // console.log("des :", data.desc)
@@ -78,22 +92,22 @@ function addProjectPost(req, res) {
     // console.log("react :", data.reactJs)
     // console.log("typescript :", data.typescript)
     
-        if (year >= 1) {
-            data.duration = `${year} years`
-            datas.unshift(data)
-            console.log(data)
-            res.redirect('/projects')
-        } else if (month >= 1) {
-            data.duration = `${month} months`
-            console.log(data)
-            datas.unshift(data)
-            res.redirect('/projects')
-        } else if (day >= 1) {
-            data.duration = `${day} days`
-            console.log(data)
-            datas.unshift(data)
-            res.redirect('/projects')
-        }
+    if (year >= 1) {
+        data.duration = `${year} years`
+        datas.unshift(data)
+        console.log("data :", data)
+        res.redirect('/projects')
+    } else if (month >= 1) {
+        data.duration = `${month} months`
+        datas.unshift(data)
+        console.log("data :", data)
+        res.redirect('/projects')
+    } else if (day >= 1) {
+        data.duration = `${day} days`
+        datas.unshift(data)
+        console.log("data :", data)
+        res.redirect('/projects')
+    }
 }
 function projectDetail(req, res) {
     const { id } = req.params
@@ -107,6 +121,7 @@ function projectDetail(req, res) {
     const next = datas[id].next
     const react = datas[id].react
     const typescript = datas[id].typescript
+    const fileImage = datas[id].fileImage
 
 
     const data = {
@@ -119,7 +134,8 @@ function projectDetail(req, res) {
         node,
         next,
         react,
-        typescript
+        typescript,
+        fileImage
     }
 
     res.render('projectDetail', {data})
@@ -133,11 +149,15 @@ function updateProject(req, res) {
     
     const dataFilter = datas[parseInt(id)]
     dataFilter.id = parseInt(id)
-    console.log("dataFilter", dataFilter)
     res.render('update', { data: dataFilter })
 }
 
 function updateProjectPost(req, res) {
+    validationInput(req, res)
+    const reqs = req.body
+    const getSecStart = new Date(reqs.startDate).getTime()
+    const getSecEnd = new Date(reqs.endDate).getTime()
+
     let data = {
         id: req.body.id,
         projectName: req.body.projectName,
@@ -148,45 +168,45 @@ function updateProjectPost(req, res) {
         nextJs: req.body.nextJs ? true : false,
         reactJs: req.body.reactJs ? true : false,
         typescript: req.body.typescript ? true : false,
-        duration: `2 years`
+        duration: ``,
+        fileImage: datas[req.body.id].fileImage
     }
-
-    let getSecStart = new Date(data.startDate).getTime()
-    let getSecEnd = new Date(data.endDate).getTime()
 
     let day = Math.floor((getSecEnd - getSecStart) / 1000 / 60 / 60 / 24)
     let month = Math.floor(day / 30)
     let year = Math.floor(month / 12)
-    
-    function updateData() {
-        datas[parseInt(data.id)] = {
-            projectName: data.projectName,
-            startDate: data.startDate,
-            endDate: data.endDate,
-            desc: data.endDate,
-            node: data.nodeJs,
-            next: data.nextJs,
-            react: data.reactJs,
-            typescript: data.typescript,
-            duration: data.duration
-        }
-    }
+
 
     if (year >= 1) {
         data.duration = `${year} years`
         console.log(data)
-        updateData()
+        updateData(data)
         res.redirect('/projects')
     } else if (month >= 1) {
         data.duration = `${month} months`
         console.log(data)
-        updateData()
+        updateData(data)
         res.redirect('/projects')
     } else if (day >= 1) {
         data.duration = `${day} days`
         console.log(data)
-        updateData()
+        updateData(data)
         res.redirect('/projects')
+    }
+}
+
+function updateData(data) {
+    datas[parseInt(data.id)] = {
+        projectName: data.projectName,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        desc: data.desc,
+        node: data.nodeJs,
+        next: data.nextJs,
+        react: data.reactJs,
+        typescript: data.typescript,
+        duration: data.duration,
+        fileImage: data.fileImage
     }
 }
 
@@ -201,6 +221,39 @@ function deleteHomeProject(req, res) {
     
     datas.splice(id, 1)
     res.redirect('/')
+}
+
+function validationInput(req, res) {
+    const reqs = req.body
+    const getSecStart = new Date(reqs.startDate).getTime()
+    const getSecEnd = new Date(reqs.endDate).getTime()
+
+    if (!reqs.projectName) {
+        res.status(400).send({
+            status: false,
+            data: "Project name can't be empty!",
+        })
+    } else if (!reqs.startDate || !reqs.endDate) {
+        res.status(400).send({
+            status: false,
+            data: "Please input date correctly!",
+        })
+    } else if ( getSecStart > getSecEnd ) {
+        res.status(400).send({
+            status: false,
+            data: "End Date must be latest than Start Date!",
+        })
+    } else if (!reqs.desc) {
+        res.status(400).send({
+            status: false,
+            data: "Description can't be empty!",
+        })
+    } else if (reqs.nodeJs == false && reqs.nextJs == false && reqs.reactJs == false && reqs.typescript == false) {
+        res.status(400).send({
+            status: false,
+            data: "Please select at least one technologies!",
+        })
+    }
 }
 
 module.exports = {
