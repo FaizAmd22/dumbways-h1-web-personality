@@ -79,33 +79,35 @@
                         <div class="col-12">
                             <h3>Technologies</h3>
                             <div class="row">
-                                {{#if data.node}}
+                            {{#each data.tech}}
+                                {{#if this.node}}
                                     <div class="col-6 d-flex gap-3">
                                             <i class='fa-brands fa-node-js fs-3'></i>
                                             <p>Node Js</p>
                                     </div>
                                 {{/if}}
 
-                                {{#if data.next}}
+                                {{#if this.next}}
                                     <div class="col-6 d-flex gap-3">
                                             <img src='/assets/icons/nextJs.png' alt='nextJs' style='width: 26px; height: 26px;'>
                                             <p>Next Js</p>
                                     </div>
                                 {{/if}}
 
-                                {{#if data.react}}
+                                {{#if this.react}}
                                     <div class="col-6 d-flex gap-3">
                                             <i class='fa-brands fa-react fs-3'></i>
                                             <p>React Js</p>
                                     </div>
                                 {{/if}}
 
-                                {{#if data.typescript}}
+                                {{#if this.typescript}}
                                     <div class="col-6 d-flex gap-3">
                                             <img src='/assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
                                             <p>Typescript</p>
                                     </div>
                                 {{/if}}
+                            {{/each}}
                             </div>
                         </div>
                     </div>

@@ -4,10 +4,14 @@ let datas = [
     {
         projectName: "Absensi App",
         desc: "Absensi app using ReactJs, ExpressJs and MYSQL",
-        node: true,
-        next: false,
-        react: true,
-        typescript: false,
+        tech: [
+            {
+                node: true,
+                next: false,
+                react: true,
+                typescript: false
+            }
+        ],
         duration: "2 months",
         startDate: "12 Jan 2023",
         endDate: "20 Mar 2023",
@@ -16,10 +20,14 @@ let datas = [
     {
         projectName: "Simple Cart",
         desc: "Simple Cart using VueJs, Bootstrap and JQuery",
-        node: true,
-        next: true,
-        react: true,
-        typescript: false,
+        tech: [
+            {
+                node: true,
+                next: true,
+                react: true,
+                typescript: false
+            }
+        ],
         duration: "1 months",
         startDate: "09 Apr 2023",
         endDate: "25 Mei 2023",
@@ -28,10 +36,14 @@ let datas = [
     {
         projectName: "Movie App",
         desc: "Movie app using MERN (MongoDB, ExpressJs, ReactJs and NodeJs) stack",
-        node: true,
-        next: true,
-        react: true,
-        typescript: true,
+        tech: [
+            {
+                node: true,
+                next: true,
+                react: true,
+                typescript: true
+            }
+        ],
         duration: '1 years',
         startDate: "22 Jun 2023",
         endDate: "02 Jul 2024",
@@ -64,16 +76,19 @@ function addProjectPost(req, res) {
             data: "Image can't be empty!",
         })      
     }
+    let techs = {
+        node: req.body.nodeJs ? true : false,
+        next: req.body.nextJs ? true : false,
+        react: req.body.reactJs ? true : false,
+        typescript: req.body.typescript ? true : false
+    }
 
     let data = {
         projectName: req.body.projectName,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         desc: req.body.desc,
-        node: req.body.nodeJs ? true : false,
-        next: req.body.nextJs ? true : false,
-        react: req.body.reactJs ? true : false,
-        typescript: req.body.typescript ? true : false,
+        tech: [{...techs}],
         duration: '',
         fileImage: req.file.path
     }
@@ -117,10 +132,7 @@ function projectDetail(req, res) {
     const duration = datas[id].duration
     const startDate = datas[id].startDate
     const endDate = datas[id].endDate
-    const node = datas[id].node
-    const next = datas[id].next
-    const react = datas[id].react
-    const typescript = datas[id].typescript
+    const tech = datas[id].tech
     const fileImage = datas[id].fileImage
 
 
@@ -131,10 +143,7 @@ function projectDetail(req, res) {
         duration,
         startDate,
         endDate,
-        node,
-        next,
-        react,
-        typescript,
+        tech,
         fileImage
     }
 
@@ -158,16 +167,20 @@ function updateProjectPost(req, res) {
     const getSecStart = new Date(reqs.startDate).getTime()
     const getSecEnd = new Date(reqs.endDate).getTime()
 
+    let techs = {
+        node: req.body.nodeJs ? true : false,
+        next: req.body.nextJs ? true : false,
+        react: req.body.reactJs ? true : false,
+        typescript: req.body.typescript ? true : false
+    }
+
     let data = {
         id: req.body.id,
         projectName: req.body.projectName,
         startDate: req.body.startDate,
         endDate: req.body.endDate,
         desc: req.body.desc,
-        nodeJs: req.body.nodeJs ? true : false,
-        nextJs: req.body.nextJs ? true : false,
-        reactJs: req.body.reactJs ? true : false,
-        typescript: req.body.typescript ? true : false,
+        tech: [{...techs}],
         duration: ``,
         fileImage: datas[req.body.id].fileImage
     }
@@ -201,10 +214,7 @@ function updateData(data) {
         startDate: data.startDate,
         endDate: data.endDate,
         desc: data.desc,
-        node: data.nodeJs,
-        next: data.nextJs,
-        react: data.reactJs,
-        typescript: data.typescript,
+        tech: data.tech,
         duration: data.duration,
         fileImage: data.fileImage
     }

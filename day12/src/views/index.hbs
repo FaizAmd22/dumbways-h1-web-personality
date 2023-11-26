@@ -123,6 +123,7 @@
 
                                         <!-- Icon -->
                                         <div class="mt-4 my-4 d-flex gap-2">
+                                            {{#each this.tech}}
                                                 {{#if this.node}}
                                                     <i class='fa-brands fa-node-js fs-3'></i>
                                                 {{/if}}
@@ -135,6 +136,7 @@
                                                 {{#if this.typescript}}
                                                     <img src='/assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
                                                 {{/if}}
+                                            {{/each}}
                                         </div>
                                     
                                     <!-- Button -->

@@ -77,12 +77,13 @@
             </div>
 
             <!-- Technologies -->
+            {{#each data.tech}}
             <div class="col-12">
                 <label class="form-label fw-bold">Technologies</label>
                 <div class="row mb-2">
                     <div class="col-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="nodeJs" name="nodeJs" {{#if data.node}}checked{{/if}}>
+                            <input class="form-check-input" type="checkbox" id="nodeJs" name="nodeJs" {{#if this.node}}checked{{/if}}>
                             <label class="form-check-label" for="nodeJs">
                               Node Js
                             </label>
@@ -90,7 +91,7 @@
                     </div>
                     <div class="col-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="nextJs" name="nextJs" {{#if data.next}}checked{{/if}}>
+                            <input class="form-check-input" type="checkbox" id="nextJs" name="nextJs" {{#if this.next}}checked{{/if}}>
                             <label class="form-check-label" for="nextJs">
                               Next Js
                             </label>
@@ -100,7 +101,7 @@
                 <div class="row">
                     <div class="col-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="reactJs" name="reactJs" {{#if data.react}}checked{{/if}}>
+                            <input class="form-check-input" type="checkbox" id="reactJs" name="reactJs" {{#if this.react}}checked{{/if}}>
                             <label class="form-check-label" for="reactJs">
                               React Js
                             </label>
@@ -108,7 +109,7 @@
                     </div>
                     <div class="col-5">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="typeScript" name="typescript" {{#if data.typescript}}checked{{/if}}>
+                            <input class="form-check-input" type="checkbox" id="typeScript" name="typescript" {{#if this.typescript}}checked{{/if}}>
                             <label class="form-check-label" for="typeScript">
                               TypeScript
                             </label>
@@ -116,6 +117,7 @@
                     </div>
                 </div>
             </div>
+            {{/each}}
 
             <!-- Upload Image -->
             <div class="col-12 d-flex flex-column">
