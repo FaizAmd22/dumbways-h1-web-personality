@@ -66,7 +66,14 @@ function addProject(req, res) {
 }
 function addProjectPost(req, res) {
     // const { projectName, startDate, endDate, desc } = req.body
-    validationInput(req, res)
+    let techs = {
+        node: req.body.nodeJs ? true : false,
+        next: req.body.nextJs ? true : false,
+        react: req.body.reactJs ? true : false,
+        typescript: req.body.typescript ? true : false
+    }
+
+    validationInput(req, res, techs)
     const reqs = req.body
     const getSecStart = new Date(reqs.startDate).getTime()
     const getSecEnd = new Date(reqs.endDate).getTime()
@@ -75,12 +82,6 @@ function addProjectPost(req, res) {
             status: false,
             data: "Image can't be empty!",
         })      
-    }
-    let techs = {
-        node: req.body.nodeJs ? true : false,
-        next: req.body.nextJs ? true : false,
-        react: req.body.reactJs ? true : false,
-        typescript: req.body.typescript ? true : false
     }
 
     let data = {
@@ -162,17 +163,17 @@ function updateProject(req, res) {
 }
 
 function updateProjectPost(req, res) {
-    validationInput(req, res)
-    const reqs = req.body
-    const getSecStart = new Date(reqs.startDate).getTime()
-    const getSecEnd = new Date(reqs.endDate).getTime()
-
     let techs = {
         node: req.body.nodeJs ? true : false,
         next: req.body.nextJs ? true : false,
         react: req.body.reactJs ? true : false,
         typescript: req.body.typescript ? true : false
     }
+    
+    validationInput(req, res, techs)
+    const reqs = req.body
+    const getSecStart = new Date(reqs.startDate).getTime()
+    const getSecEnd = new Date(reqs.endDate).getTime()
 
     let data = {
         id: req.body.id,
@@ -233,7 +234,7 @@ function deleteHomeProject(req, res) {
     res.redirect('/')
 }
 
-function validationInput(req, res) {
+function validationInput(req, res, techs) {
     const reqs = req.body
     const getSecStart = new Date(reqs.startDate).getTime()
     const getSecEnd = new Date(reqs.endDate).getTime()
@@ -258,7 +259,7 @@ function validationInput(req, res) {
             status: false,
             data: "Description can't be empty!",
         })
-    } else if (reqs.nodeJs == false && reqs.nextJs == false && reqs.reactJs == false && reqs.typescript == false) {
+    } else if (techs.nodeJs == false && techs.nextJs == false && techs.reactJs == false && techs.typescript == false) {
         res.status(400).send({
             status: false,
             data: "Please select at least one technologies!",
