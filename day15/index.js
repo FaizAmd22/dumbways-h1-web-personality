@@ -13,7 +13,8 @@ const {
     login,
     loginPost,
     register,
-    registerPost
+    registerPost,
+    logout
 } = require('./services/service')
 
 const multer = require('multer')
@@ -80,6 +81,8 @@ app.get('/register', register)
 
 app.post('/login', loginPost)
 app.post('/register', registerPost)
+
+app.get('/logout', logout)
 
 
 app.listen(port, () => {

@@ -15,7 +15,7 @@ async function home(req, res) {
 }
 
 function contact(req, res) {
-    res.render('contact', {isLogin: req.session.isLogin})
+    res.render('contact', { isLogin: req.session.isLogin })
 }
 async function projects(req, res) {
     const isLogin = req.session.user
@@ -27,7 +27,7 @@ async function projects(req, res) {
     const query = 'SELECT * FROM tb_projects'
     const object = await sequelize.query(query, { type: QueryTypes.SELECT })
 
-    res.render('project', { datas : object.reverse(), isLogin })
+    res.render('project', { datas: object.reverse(), isLogin })
 }
 function addProject(req, res) {
     const isLogin = req.session.user
@@ -49,7 +49,7 @@ function addProjectPost(req, res) {
         req.flash('danger', "Image can't be empty!")
         res.redirect(urlRedirect)
     }
-        
+
     let data = {
         projectName: req.body.projectName,
         startDate: req.body.startDate,
@@ -76,7 +76,7 @@ function addProjectPost(req, res) {
         req.flash('success', 'Add project Success!')
         res.redirect('/projects')
     }
-    
+
 
     if (year >= 1) {
         data.duration = `${year} years`
@@ -117,7 +117,7 @@ async function updateProject(req, res) {
         req.flash('danger', "You need to login first!")
         res.redirect('/')
     }
-    
+
     // const dataFilter = datas[parseInt(id)]
     // dataFilter.id = parseInt(id)
     const query = `SELECT * FROM tb_projects where id=${id}`
@@ -164,7 +164,7 @@ async function updateProjectPost(req, res) {
             const query = `UPDATE tb_projects SET name='${data.projectName}',start_date='${data.startDate}',end_date='${data.endDate}',description='${data.desc}',node='${data.node}',next='${data.next}',react='${data.react}',typescript='${data.typescript}',image='${image}' WHERE id=${data.id}`
             const object = await sequelize.query(query, { type: QueryTypes.UPDATE })
         }
-        
+
 
         if (year >= 1) {
             data.duration = `${year} years`
@@ -204,7 +204,7 @@ async function updateProjectPost(req, res) {
 
 async function deleteProject(req, res) {
     const { id } = req.params
-    
+
     // datas.splice(id, 1)
     const query = `delete from tb_projects where id=${id}`
     const object = await sequelize.query(query, { type: QueryTypes.DELETE })
@@ -215,7 +215,7 @@ async function deleteProject(req, res) {
 }
 async function deleteHomeProject(req, res) {
     const { id } = req.params
-    
+
     // datas.splice(id, 1)
     const query = `delete from tb_projects where id=${id}`
     const object = await sequelize.query(query, { type: QueryTypes.DELETE })
@@ -231,7 +231,7 @@ function login(req, res) {
 
 async function loginPost(req, res) {
     const { email, password } = req.body
-    
+
     const query = `SELECT * FROM users WHERE email='${email}'`
     const obj = await sequelize.query(query, { type: QueryTypes.SELECT })
 
@@ -248,7 +248,7 @@ async function loginPost(req, res) {
             res.status(404)
             return res.redirect('/login')
         }
-        
+
         if (!result) {
             console.error('Email or password was wrong!')
             req.flash('danger', 'Email or password was wrong!')
@@ -276,19 +276,33 @@ async function registerPost(req, res) {
     const { name, email, password } = req.body
     const salt = 10
     const encryptedPassword = await bcrypt.hash(password, salt)
-    
+
     const query = `INSERT INTO users(name, email, password) VALUES('${name}', '${email}', '${encryptedPassword}')`
     await sequelize.query(query, { type: QueryTypes.UPDATE })
 
     const userEmail = `SELECT * FROM users`
     const obj = await sequelize.query(query, { type: QueryTypes.SELECT })
 
-    if (email == obj[0].email) {
-        req.flash('danger', 'Email has been used!')
-        res.redirect('/register')
-    }
+    // if (email == obj[0].email) {
+    //     req.flash('danger', 'Email has been used!')
+    //     res.redirect('/register')
+    // }
+    const query2 = `SELECT * FROM users WHERE email='${email}'`
+    const obj2 = await sequelize.query(query2, { type: QueryTypes.SELECT })
 
     req.flash('success', 'Register Success!')
+    req.session.isLogin = true
+    req.session.user = {
+        name: obj2[0].name,
+        email: obj2[0].email
+    }
+    res.redirect('/')
+}
+
+function logout(req, res) {
+    req.session.isLogin = false
+    req.session.user = ''
+    req.flash('success', 'Logout Success!')
     res.redirect('/')
 }
 
@@ -305,7 +319,7 @@ function validationInput(req, res, urlRedirect) {
         res.status(400)
         req.flash('danger', "Please input date correctly!")
         return res.redirect(urlRedirect)
-    } else if ( getSecStart > getSecEnd ) {
+    } else if (getSecStart > getSecEnd) {
         res.status(400)
         req.flash('danger', "End Date must be latest than Start Date!")
         return res.redirect(urlRedirect)
@@ -335,5 +349,6 @@ module.exports = {
     login,
     loginPost,
     register,
-    registerPost
+    registerPost,
+    logout
 }
