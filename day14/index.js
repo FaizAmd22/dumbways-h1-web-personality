@@ -12,8 +12,6 @@ const {
     home
 } = require('./services/service')
 
-const { login } = require('./services/login')
-
 const express = require('express')
 const path = require('path')
 const app = express()
@@ -59,9 +57,6 @@ app.post(
 
 app.post('/projects/delete/:id', deleteProject)
 app.post('/delete/:id', deleteHomeProject)
-
-app.get('/login', login)
-
 
 app.listen(port, () => {
     console.log(`Server berjalan di port ${port}`)
