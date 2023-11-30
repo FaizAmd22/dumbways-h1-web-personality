@@ -69,6 +69,14 @@
             </div>
         </nav>
 
+        {{#if messages.danger}}
+            <div class="alert alert-danger mt-3" role="alert">
+                <div class="container">
+                    {{messages.danger}}
+                </div>
+            </div>
+        {{/if}}
+
         <div class="container d-flex flex-column justify-content-center" style="height: 90vh;">
             <h1 class="text-center fw-bold text-uppercase mb-5">register your account</h1>
             <form class="row mx-auto g-3 needs-validation" novalidate method="post" action="/register">

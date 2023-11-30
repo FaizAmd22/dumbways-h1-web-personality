@@ -28,7 +28,7 @@
             width: 60%;
         }
         .card img {
-            height: 250px;
+            height: 260px;
         }
 
         @media only screen and (max-width: 960px) {
@@ -79,9 +79,17 @@
     </nav>
 
     {{#if messages.success}}
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success mt-3" role="alert">
             <div class="container">
                 {{messages.success}}
+            </div>
+        </div>
+    {{/if}}
+
+    {{#if messages.danger}}
+        <div class="alert alert-danger mt-3" role="alert">
+            <div class="container">
+                {{messages.danger}}
             </div>
         </div>
     {{/if}}
@@ -91,67 +99,69 @@
             <div class="d-flex justify-content-end pt-4 mb-4">
                 <a href="/projects/add" class="btn btn-dark px-5 fw-bold"><i class="fa-solid fa-plus"></i> Add Project</a>
             </div>
-                <div class="projects" id="projects">
-                    {{#each datas}}
-                        <div class="card mb-3">
-                            <div class="row card-body">
-                                <!-- image -->
-                                <div class="col-12 col-lg-5">
-                                    <img src="/assets/img/{{this.image}}" alt="imageContent" class="w-100 rounded-2 mb-2 mb-lg-0">
+
+            <div class="projects" id="projects">
+                {{#each datas}}
+                    <div class="card mb-3">
+                        <div class="row card-body">
+                            <!-- image -->
+                            <div class="col-12 col-lg-5">
+                                <img src="/assets/img/{{this.image}}" alt="imageContent" class="w-100 rounded-2 mb-2 mb-lg-0">
+                            </div>
+
+                            <div class="col d-flex flex-column">
+                                <div class="order-lg-2">
+                                    <!-- Judul card -->
+                                    <a class="card-title text-decoration-none fw-bold text-capitalize" href="/projects/details/{{this.id}}" target="_blank">
+                                        <h2>{{this.name}}</h2>
+                                    </a>
+
+                                    <!-- Durasi -->
+                                    <p style="margin-top: -5px; margin-bottom: 4px;">Author : {{this.author}}</p>
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">
+                                        duration : {{this.duration}}
+                                    </h6>
+                                    <p class="card-text overflow-hidden" style="height: 70px;">
+                                        {{this.description}}
+                                    </p>
+
+                                    <!-- Icon -->
+                                    <div class="mt-4 my-4 my-lg-0 d-flex gap-2">
+                                            {{#if this.node}}
+                                                <i class='fa-brands fa-node-js fs-3'></i>
+                                            {{/if}}
+                                            {{#if this.next}}
+                                                <img src='/assets/icons/nextJs.png' alt='nextJs' style='width: 26px; height: 26px;'>
+                                            {{/if}}
+                                            {{#if this.react}}
+                                                <i class='fa-brands fa-react fs-3'></i>
+                                            {{/if}}
+                                            {{#if this.typescript}}
+                                                <img src='/assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
+                                            {{/if}}
+                                    </div>
                                 </div>
-
-                                <div class="col d-flex flex-column">
-                                    <div class="order-lg-2">
-                                        <!-- Judul card -->
-                                        <a class="card-title text-decoration-none fw-bold text-capitalize" href="/projects/details/{{this.id}}" target="_blank">
-                                            <h2>{{this.name}}</h2>
-                                        </a>
-
-                                        <!-- Durasi -->
-                                        <h6 class="card-subtitle mb-2 text-body-secondary">
-                                            duration : {{this.duration}}
-                                        </h6>
-                                        <p class="card-text overflow-hidden" style="height: 70px;">
-                                            {{this.description}}
-                                        </p>
-
-                                        <!-- Icon -->
-                                        <div class="mt-4 my-4 my-lg-0 d-flex gap-2">
-                                                {{#if this.node}}
-                                                    <i class='fa-brands fa-node-js fs-3'></i>
-                                                {{/if}}
-                                                {{#if this.next}}
-                                                    <img src='/assets/icons/nextJs.png' alt='nextJs' style='width: 26px; height: 26px;'>
-                                                {{/if}}
-                                                {{#if this.react}}
-                                                    <i class='fa-brands fa-react fs-3'></i>
-                                                {{/if}}
-                                                {{#if this.typescript}}
-                                                    <img src='/assets/icons/typescript.png' alt='typeScript' style='width: 26px; height: 26px;'>
-                                                {{/if}}
+                                
+                                <!-- Button -->
+                                <div class="row order-lg-1 mb-0 mb-md-3 d-flex justify-content-lg-end">
+                                    <div class="col-6 col-lg-3">
+                                        <div class="bg-dark-subtle rounded-2 d-flex justify-content-center">
+                                            <a href="/projects/update/{{this.id}}" class="btn px-5">Edit</a>
                                         </div>
                                     </div>
-                                    
-                                    <!-- Button -->
-                                    <div class="row order-lg-1 mb-0 mb-md-3 d-flex justify-content-lg-end">
-                                        <div class="col-6 col-lg-3">
-                                            <div class="bg-dark-subtle rounded-2 d-flex justify-content-center">
-                                                <a href="/projects/update/{{this.id}}" class="btn px-5">Edit</a>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-6 col-lg-3">
-                                            <div class="bg-dark rounded-2 d-flex justify-content-center">
-                                                <form method="post" action="/projects/delete/{{this.id}}" class="d-flex justify-content-center">
-                                                    <button class="btn px-5 text-white">Delete</button>
-                                                </form>
-                                            </div>
+                                    <div class="col-6 col-lg-3">
+                                        <div class="bg-dark rounded-2 d-flex justify-content-center">
+                                            <form method="post" action="/projects/delete/{{this.id}}" class="d-flex justify-content-center">
+                                                <button class="btn px-5 text-white">Delete</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {{/each}}
+                    </div>
+                {{/each}}
             </div>
         </div>
     </div>

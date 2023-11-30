@@ -35,7 +35,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid gap-3 mx-0 mx-md-5" id="container">
+        <div class="container gap-3 m-auto" id="container">
           <a class="navbar-brand" href="/">
             <img src="/assets/img/brandred.png" alt="Dumbways" style="width: 80px;">
           </a>
@@ -74,7 +74,7 @@
     </nav>
 
     {{#if messages.success}}
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success mt-3 mb-0" role="alert">
             <div class="container">
                 {{messages.success}}
             </div>
@@ -82,11 +82,17 @@
     {{/if}}
 
     {{#if messages.danger}}
-        <div class="alert alert-danger" role="alert">
+        <div class="alert alert-danger mt-3" role="alert">
             <div class="container">
                 {{messages.danger}}
             </div>
         </div>
+    {{/if}}
+
+    {{#if isLogin}}
+    <div class="container text-end">
+        <p class="text-center py-3 px-4 fs-5 rounded-bottom-3 border-0 bg-dark text-white d-inline-flex shadow">Welcome, {{userName}}</p>
+    </div>
     {{/if}}
 
     <div class="container d-flex align-items-center my-5" style="min-height: 80vh;">
@@ -128,6 +134,7 @@
         </div>
     </div>
 
+    {{#if isLogin}}
     <div class="bg-white py-3">
         <h1 class="text-center fw-bold text-uppercase my-5">My Projects</h1>
         <div class="container">
@@ -193,6 +200,7 @@
             </div>
         </div>
     </div>
+    {{/if}}
 
     
     <script src="/assets/js/bootstrap.bundle.min.js"></script>

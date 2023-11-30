@@ -14,7 +14,8 @@ const {
     loginPost,
     register,
     registerPost,
-    logout
+    logout,
+    notFounded
 } = require('./services/service')
 
 const multer = require('multer')
@@ -32,6 +33,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     cookie: {
+        secure: false,
         maxAge: 1000 * 60 * 60 * 24
     }
 }))
@@ -83,6 +85,8 @@ app.post('/login', loginPost)
 app.post('/register', registerPost)
 
 app.get('/logout', logout)
+
+app.get('*', notFounded)
 
 
 app.listen(port, () => {
