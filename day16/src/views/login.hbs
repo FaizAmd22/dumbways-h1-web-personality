@@ -70,7 +70,7 @@
         </nav>
 
         {{#if messages.danger}}
-        <div class="alert alert-danger mt-3" role="alert">
+        <div class="alert alert-danger mt-3 animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.danger}}
             </div>
@@ -78,8 +78,8 @@
         {{/if}}
 
         <div class="container d-flex flex-column justify-content-center" style="height: 90vh;">
-            <h1 class="text-center fw-bold text-uppercase mb-5">login to your account</h1>
-            <form class="row mx-auto g-3 needs-validation" method="post" action="/login" novalidate>
+            <h1 class="text-center fw-bold text-uppercase mb-5 animate__animated animate__fadeIn">login to your account</h1>
+            <form class="row mx-auto g-3 needs-validation animate__animated animate__fadeIn" method="post" action="/login" novalidate>
                 <!-- Email -->
                 <div class="col-12">
                     <label for="inputName" class="form-label fw-bold">Email</label>

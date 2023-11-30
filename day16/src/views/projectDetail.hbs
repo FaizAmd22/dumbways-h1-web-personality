@@ -48,7 +48,7 @@
             </ul>
 
             {{#unless isLogin}}
-            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3">
+            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3 animate__animated animate__fadeIn">
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Register</a>
                 </li>
@@ -57,7 +57,7 @@
                 </li>
             </ul>
             {{else}}
-            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3">
+            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3 animate__animated animate__fadeIn">
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
@@ -68,7 +68,7 @@
         </div>
     </nav>
 
-        <div class="container">
+        <div class="container animate__animated animate__fadeIn">
             <h1 class="text-center my-5 fw-bold">{{data.name}}</h1>
             <div class="row gap-3 gap-lg-0">
                 <div class="col-12 col-lg-7">

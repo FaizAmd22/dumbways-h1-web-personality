@@ -65,7 +65,7 @@
     </nav>
 
     {{#if messages.danger}}
-      <div class="alert alert-danger mt-3" role="alert">
+      <div class="alert alert-danger mt-3 animate__animated animate__fadeIn" role="alert">
           <div class="container">
               {{messages.danger}}
           </div>
@@ -74,7 +74,7 @@
 
     <div class="container d-flex flex-column justify-content-center my-5">
         <h1 class="text-center fw-bold text-uppercase mt-2 mb-5">Update project</h1>
-        <form class="row mx-auto g-3 needs-validation" novalidate method="post" action="/projects/update" enctype="multipart/form-data">
+        <form class="row mx-auto g-3 needs-validation animate__animated animate__fadeIn" novalidate method="post" action="/projects/update" enctype="multipart/form-data">
             {{!-- Id --}}
             <input type="hidden" name="id" value="{{data.id}}" readonly>
             <!-- Project Name -->

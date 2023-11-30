@@ -65,7 +65,7 @@
     </nav>
 
     {{#if messages.danger}}
-        <div class="alert alert-danger mt-3" role="alert">
+        <div class="alert alert-danger mt-3 animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.danger}}
             </div>
@@ -73,8 +73,8 @@
     {{/if}}
 
     <div class="container d-flex flex-column justify-content-center" style="height: 90vh;">
-        <h1 class="text-center fw-bold text-uppercase mb-5">Add my project</h1>
-        <form class="row mx-auto g-3 needs-validation" novalidate method="post" action="/projects/add" enctype="multipart/form-data">
+        <h1 class="text-center fw-bold text-uppercase mb-5 animate__animated animate__fadeIn">Add my project</h1>
+        <form class="row mx-auto g-3 needs-validation animate__animated animate__fadeIn" novalidate method="post" action="/projects/add" enctype="multipart/form-data">
             <!-- Project Name -->
             <div class="col-12">
                 <label for="inputName" class="form-label fw-bold">Project Name</label>

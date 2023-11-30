@@ -58,7 +58,7 @@
             </ul>
 
             {{#unless isLogin}}
-            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3">
+            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3 animate__animated animate__fadeIn">
                 <li class="nav-item">
                     <a class="nav-link" href="/register">Register</a>
                 </li>
@@ -67,7 +67,7 @@
                 </li>
             </ul>
             {{else}}
-            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3">
+            <ul class="navbar-nav mx-0 mx-lg-5 mb-2 mb-lg-0 gap-3 animate__animated animate__fadeIn">
                 <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>
@@ -79,7 +79,7 @@
     </nav>
 
     {{#if messages.success}}
-        <div class="alert alert-success mt-3" role="alert">
+        <div class="alert alert-success mt-3 animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.success}}
             </div>
@@ -87,7 +87,7 @@
     {{/if}}
 
     {{#if messages.danger}}
-        <div class="alert alert-danger mt-3" role="alert">
+        <div class="alert alert-danger mt-3 animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.danger}}
             </div>
@@ -102,7 +102,7 @@
 
             <div class="projects" id="projects">
                 {{#each datas}}
-                    <div class="card mb-3">
+                    <div class="card mb-3 animate__animated animate__fadeIn">
                         <div class="row card-body">
                             <!-- image -->
                             <div class="col-12 col-lg-5">

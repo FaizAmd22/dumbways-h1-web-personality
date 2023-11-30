@@ -74,7 +74,7 @@
     </nav>
 
     {{#if messages.success}}
-        <div class="alert alert-success mt-3 mb-0" role="alert">
+        <div class="alert alert-success mt-3 mb-0 animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.success}}
             </div>
@@ -82,7 +82,7 @@
     {{/if}}
 
     {{#if messages.danger}}
-        <div class="alert alert-danger mt-3" role="alert">
+        <div class="alert alert-danger mt-3 animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.danger}}
             </div>
@@ -90,12 +90,12 @@
     {{/if}}
 
     {{#if isLogin}}
-    <div class="container text-end">
+    <div class="container text-end animate__animated animate__fadeIn">
         <p class="text-center py-3 px-4 fs-5 rounded-bottom-3 border-0 bg-dark text-white d-inline-flex shadow">Welcome, {{userName}}</p>
     </div>
     {{/if}}
 
-    <div class="container d-flex align-items-center my-5" style="min-height: 80vh;">
+    <div class="container d-flex align-items-center my-5 animate__animated animate__fadeIn" style="min-height: 80vh;">
         <div class="bg-white px-5 py-5 py-md-4 rounded-3 shadow-lg">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-md-7 d-flex flex-column gap-5">
@@ -138,7 +138,7 @@
     <div class="bg-white py-3">
         <h1 class="text-center fw-bold text-uppercase my-5">My Projects</h1>
         <div class="container">
-                <div class="row projects gap-3 gap-lg-5 d-flex justify-content-center" id="projects">
+                <div class="row projects gap-3 gap-lg-5 d-flex justify-content-center animate__animated animate__fadeIn" id="projects">
                     {{#each data}}
                         <div class="col-12 col-lg-3 card mb-3">
                             <div class="row card-body">
