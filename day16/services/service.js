@@ -77,15 +77,34 @@ function addProjectPost(req, res) {
         fileImage: req.file.filename,
         sessionId : req.session.user.id
     }
+    const getSecStart = new Date(data.startDate).getTime()
+    const getSecEnd = new Date(data.endDate).getTime()
     
     urlRedirect = "/projects/add"
-    validationInput(req, res, urlRedirect)
+    if (!data.projectName) {
+        res.status(400)
+        req.flash('danger', "Project name can't be empty!")
+        return res.redirect(urlRedirect)
+    } else if (!data.startDate || !data.endDate) {
+        res.status(400)
+        req.flash('danger', "Please input date correctly!")
+        return res.redirect(urlRedirect)
+    } else if (getSecStart > getSecEnd) {
+        res.status(400)
+        req.flash('danger', "End Date must be latest than Start Date!")
+        return res.redirect(urlRedirect)
+    } else if (!data.desc) {
+        res.status(400)
+        req.flash('danger', "Description can't be empty!")
+        return res.redirect(urlRedirect)
+    } else if (data.node == false && data.next == false && data.react == false && data.typescript == false) {
+        res.status(400)
+        req.flash('danger', "Please select at least one technologies!")
+        return res.redirect(urlRedirect)
+    }
     
 
     // data.fileImage = data.fileImage.substring(37)
-
-    const getSecStart = new Date(data.startDate).getTime()
-    const getSecEnd = new Date(data.endDate).getTime()
 
     let day = Math.floor((getSecEnd - getSecStart) / 1000 / 60 / 60 / 24)
     let month = Math.floor(day / 30)
@@ -181,11 +200,11 @@ async function updateProjectPost(req, res) {
     const getSecStart = new Date(reqs.startDate).getTime()
     const getSecEnd = new Date(reqs.endDate).getTime()
     urlRedirect = `/projects/update/${data.id}`
-    if (!reqs.projectName) {
+    if (!data.projectName) {
         res.status(400)
         req.flash('danger', "Project name can't be empty!")
         return res.redirect(urlRedirect)
-    } else if (!reqs.startDate || !reqs.endDate) {
+    } else if (!data.startDate || !data.endDate) {
         res.status(400)
         req.flash('danger', "Please input date correctly!")
         return res.redirect(urlRedirect)
@@ -193,11 +212,11 @@ async function updateProjectPost(req, res) {
         res.status(400)
         req.flash('danger', "End Date must be latest than Start Date!")
         return res.redirect(urlRedirect)
-    } else if (!reqs.desc) {
+    } else if (!data.desc) {
         res.status(400)
         req.flash('danger', "Description can't be empty!")
         return res.redirect(urlRedirect)
-    } else if (reqs.nodeJs == false && reqs.nextJs == false && reqs.reactJs == false && reqs.typescript == false) {
+    } else if (data.node == false && data.next == false && data.react == false && data.typescript == false) {
         res.status(400)
         req.flash('danger', "Please select at least one technologies!")
         return res.redirect(urlRedirect)
@@ -397,33 +416,6 @@ function logout(req, res) {
     res.redirect('/')
 }
 
-function validationInput(req, res, urlRedirect) {
-    const reqs = req.body
-    const getSecStart = new Date(reqs.startDate).getTime()
-    const getSecEnd = new Date(reqs.endDate).getTime()
-
-    if (!reqs.projectName) {
-        res.status(400)
-        req.flash('danger', "Project name can't be empty!")
-        return res.redirect(urlRedirect)
-    } else if (!reqs.startDate || !reqs.endDate) {
-        res.status(400)
-        req.flash('danger', "Please input date correctly!")
-        return res.redirect(urlRedirect)
-    } else if (getSecStart > getSecEnd) {
-        res.status(400)
-        req.flash('danger', "End Date must be latest than Start Date!")
-        return res.redirect(urlRedirect)
-    } else if (!reqs.desc) {
-        res.status(400)
-        req.flash('danger', "Description can't be empty!")
-        return res.redirect(urlRedirect)
-    } else if (reqs.nodeJs == false && reqs.nextJs == false && reqs.reactJs == false && reqs.typescript == false) {
-        res.status(400)
-        req.flash('danger', "Please select at least one technologies!")
-        return res.redirect(urlRedirect)
-    }
-}
 
 function notFounded(req, res) {
     res.render('notFound')
