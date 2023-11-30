@@ -30,11 +30,17 @@
         .active {
             font-weight: bold;
         }
+
+        @media only screen and (max-width: 1000px) {
+            #cardProfile{
+                margin-top: 150px;
+            }
+        }
     </style>
 </header>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top w-100 z-2">
         <div class="container gap-3 m-auto" id="container">
           <a class="navbar-brand" href="/">
             <img src="/assets/img/brandred.png" alt="Dumbways" style="width: 80px;">
@@ -82,7 +88,7 @@
     {{/if}}
 
     {{#if messages.danger}}
-        <div class="alert alert-danger mt-3 animate__animated animate__fadeIn" role="alert">
+        <div class="alert alert-danger mt-3  animate__animated animate__fadeIn" role="alert">
             <div class="container">
                 {{messages.danger}}
             </div>
@@ -90,13 +96,13 @@
     {{/if}}
 
     {{#if isLogin}}
-    <div class="container text-end animate__animated animate__fadeIn">
+    <div class="container text-end animate__animated animate__fadeIn fixed-top mt-4 z-1" style="top: 55px;">
         <p class="text-center py-3 px-4 fs-5 rounded-bottom-3 border-0 bg-dark text-white d-inline-flex shadow">Welcome, {{userName}}</p>
     </div>
     {{/if}}
 
-    <div class="container d-flex align-items-center my-5 animate__animated animate__fadeIn" style="min-height: 80vh;">
-        <div class="bg-white px-5 py-5 py-md-4 rounded-3 shadow-lg">
+    <div class="container d-flex align-items-center my-5 my-12 my-lg-0 animate__animated animate__fadeIn" style="min-height: 100vh;">
+        <div class="bg-white px-5 py-5 py-md-4 rounded-3 shadow-lg" id="cardProfile">
             <div class="row d-flex align-items-center">
                 <div class="col-12 col-md-7 d-flex flex-column gap-5">
                     <div>
