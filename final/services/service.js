@@ -20,37 +20,27 @@ async function home(req, res) {
 
         const query = `SELECT * FROM tb_projects WHERE "authorId"=${userId}`
         const object = await sequelize.query(query, { type: QueryTypes.SELECT })
-        res.render('index', { data: object, userName, isLogin })
+
+        const profile = `SELECT * FROM profile`
+        const profiles = await sequelize.query(profile, { type: QueryTypes.SELECT })
+        
+        res.render('index', { data: object, profile: profiles[0], userName, isLogin })
     } else {
         console.log("data id tidak ditemukkan")
         const isLogin = req.session.isLogin
         
-        res.render('index', { isLogin })
+        const profile = `SELECT * FROM profile`
+        const profiles = await sequelize.query(profile, { type: QueryTypes.SELECT })
+        
+        console.log("data profiles", profiles[0])
+        res.render('index', { profile: profiles[0], isLogin })
     }
 }
 
 function contact(req, res) {
     res.render('contact', { isLogin: req.session.isLogin })
 }
-// async function projects(req, res) {
-//     const isLogin = req.session.isLogin
-//     const user = req.session.user
 
-//     const authorFilter = req.body.authorFilter
-//     const projectNameFilter = req.body.projectNameFilter
-
-//     console.log(authorFilter)
-//     console.log(projectNameFilter)
-
-//     // 
-
-//     const query = `SELECT tb_projects.id, tb_projects.name, tb_projects.start_date, tb_projects.end_date, tb_projects.description, tb_projects.node, tb_projects.next, tb_projects.react, tb_projects.typescript, tb_projects.image, tb_projects.duration,
-//     users.name AS author FROM tb_projects LEFT JOIN users ON
-//     tb_projects."authorId" = users.id`
-//     const object = await sequelize.query(query, { type: QueryTypes.SELECT })
-
-//     res.render('project', { datas: object.reverse(), isLogin, user })
-// }
 async function projects(req, res) {
     const isLogin = req.session.isLogin
     const user = req.session.user
@@ -72,10 +62,12 @@ async function projects(req, res) {
     const whereClauses = []
 
     if (authorFilter) {
+        authorFilter = `${authorFilter}`.toLowerCase()
         whereClauses.push(`users.name LIKE '%${authorFilter}%'`)
     }
 
     if (projectNameFilter) {
+        projectNameFilter = `${projectNameFilter}`.toLowerCase()
         whereClauses.push(`tb_projects.name LIKE '%${projectNameFilter}%'`)
     }
 

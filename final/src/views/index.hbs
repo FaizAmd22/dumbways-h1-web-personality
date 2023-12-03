@@ -30,6 +30,11 @@
         .active {
             font-weight: bold;
         }
+        @media only screen and (max-width: 700px) {
+            #card {
+                margin-top: 80px;
+            }
+        }
     </style>
 </header>
 
@@ -97,39 +102,64 @@
     {{/if}}
 
     <div class="container d-flex align-items-center my-5 animate__animated animate__fadeIn" style="min-height: 80vh;">
-        <div class="bg-white px-5 py-5 py-md-4 mt-5 rounded-3 shadow-lg">
-            <div class="row d-flex align-items-center">
-                <div class="col-12 col-md-7 d-flex flex-column gap-5">
-                    <div>
-                        <h1 class="fw-bold">Hi! Welcome to my hut</h1>
-                        <p>Saya adalah lulusan SMAN 1 Jatiwangi angkatan 2019 dan sempat menempuh pendidikan di STTB selama 2 semester. Saya memiliki minat berkarir sebagai programmer.</p>
-                        <a class="btn btn-dark rounded-5 px-4" href="mailto:ahmadfaizhal8@gmail.com">contact</a>
-                        <a class="btn" href="https://drive.google.com/uc?export=download&id=1uIFtkZhLLciEVDEOE3XCBA3rlvjCys3Q">download CV <i class="fa-solid fa-download"></i></a>
-                    </div>
-
-                    <div class="d-flex gap-4 justify-content-center justify-content-lg-start mb-5 mb-md-0">
-                        <a class="btn btn-dark rounded-5 fs-4" href="https://www.linkedin.com/in/faizhal-ahmad-3940b4206/">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a class="btn btn-dark rounded-5 fs-4" href="https://www.instagram.com/fzhal_a2/">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a class="btn btn-dark rounded-5 fs-4" href="https://web.facebook.com/faizhal.ahmad.96/?locale=id_ID">
-                            <i class="fa-brands fa-facebook"></i>
-                        </a>
-                        <a class="btn btn-dark rounded-5 fs-4" href="https://twitter.com/FaizhalSiddiq">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-7 d-flex flex-column justify-content-center gap-5 order-1 p-5">
+                <div>
+                    <h1 class="fw-bold">Hi! Welcome to my hut</h1>
+                    <p>Saya adalah lulusan SMAN 1 Jatiwangi angkatan 2019 dan sempat menempuh pendidikan di STTB selama 2 semester. Saya memiliki minat berkarir sebagai programmer.</p>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <a class="btn btn-dark w-100 rounded-5 shadow-sm" href="mailto:ahmadfaizhal8@gmail.com">contact</a>
+                        </div>
+                        <div class="col-12 col-md-6 text-center mt-3 mt-md-0">
+                            <a class="btn w-100 btn-light shadow-sm rounded-5" href="https://drive.google.com/uc?export=download&id=1uIFtkZhLLciEVDEOE3XCBA3rlvjCys3Q">download CV <i class="fa-solid fa-download"></i></a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
-                    <div class="card shadow">
-                        <img src="/assets/img/01.jpg" class="card-img-top" alt="...">
-                        <div class="card-body text-center">
-                          <h5 class="card-title fw-bold">Faizhal Ahmad Siddiq</h5>
-                          <p class="card-text">Calon Fullstack Developer</p>
-                        </div>
-                      </div>
+
+                <div class="d-flex gap-4 gap-md-4 justify-content-center justify-content-lg-start mb-md-0 flex-wrap">
+                    <a class="btn btn-dark rounded-5 fs-4" href="https://www.linkedin.com/in/faizhal-ahmad-3940b4206/">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a class="btn btn-dark rounded-5 fs-4" href="https://www.instagram.com/fzhal_a2/">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a class="btn btn-dark rounded-5 fs-4" href="https://twitter.com/FaizhalSiddiq">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a class="btn btn-dark rounded-5 fs-4" href="https://github.com/FaizAmd22">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 col-md-5 order-0 mb-5 mb-md-0">
+                <div class="card shadow pt-3 px-3" id="card">
+                    <img src="/assets/img/01.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">{{profile.name}}</h5>
+                        <p class="card-text">{{profile.desc}}</p>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Projects</th>
+                                    <th scope="col">Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each profile.project}}
+                                <tr>
+                                    <td>
+                                        <a target="_blank" href="{{lookup ../profile.link @index}}" class="text-decoration-none">{{this}}</a>
+                                    </td>
+                                    <td>
+                                        {{lookup ../profile.year @index}}
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,14 +212,14 @@
                                     <div class="row d-flex justify-content-lg-end">
                                         <div class="col-6">
                                             <div class="bg-dark-subtle rounded-2 d-flex justify-content-center">
-                                                <a href="/projects/update/{{this.id}}" class="btn px-5">Edit</a>
+                                                <a href="/projects/update/{{this.id}}" class="btn btn-light shadow-sm w-100">Edit</a>
                                             </div>
                                         </div>
 
                                         <div class="col-6">
-                                            <div class="bg-dark rounded-2 d-flex justify-content-center">
-                                                <form method="post" action="/delete/{{this.id}}">
-                                                    <button class="btn px-5 text-white">Delete</button>
+                                            <div class="d-flex justify-content-center">
+                                                <form method="post" action="/delete/{{this.id}}" class="w-100">
+                                                    <button class="btn btn-dark shadow-sm w-100 text-white rounded-2">Delete</button>
                                                 </form>
                                             </div>
                                         </div>
