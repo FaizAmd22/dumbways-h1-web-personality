@@ -2,14 +2,14 @@ let datas = [
     {
         projectName: "Absensi App",
         desc: "Absensi app using ReactJs, ExpressJs and MYSQL",
-        tech: [
+        tech: [ 
             {
-                node: true,
-                next: false,
-                react: true,
-                typescript: false
+                "node": true,
+                "next": true,
+                "react": true,
+                "typescript": true
             }
-        ],
+         ],
         duration: "2 months",
         startDate: "12 Jan 2023",
         endDate: "20 Mar 2023",
@@ -20,10 +20,10 @@ let datas = [
         desc: "Simple Cart using VueJs, Bootstrap and JQuery",
         tech: [
             {
-                node: true,
-                next: true,
-                react: true,
-                typescript: false
+                "node": true,
+                "next": true,
+                "react": true,
+                "typescript": true
             }
         ],
         duration: "1 months",
@@ -36,10 +36,10 @@ let datas = [
         desc: "Movie app using MERN (MongoDB, ExpressJs, ReactJs and NodeJs) stack",
         tech: [
             {
-                node: true,
-                next: true,
-                react: true,
-                typescript: true
+                "node": true,
+                "next": true,
+                "react": true,
+                "typescript": true
             }
         ],
         duration: '1 years',
