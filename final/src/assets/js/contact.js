@@ -25,17 +25,17 @@ function submitButton() {
     const invalidEmail = !isEmail(inputEmail)
 
     if (inputName.length === 0) {
-        alert("Nama harus diisi!")
+        alert("Name can't be empty!")
     } else if (inputEmail.length === 0) {
-        alert("Email harus diisi!")
+        alert("Email can't be empty!")
     } else if (invalidEmail) {
-        alert("Email salah! Mohon masukkan email yang tepat")
+        alert("Wrong Email! Please input email correctly!")
     } else if (inputPhone.length === 0) {
         alert("Phone number can't be empty!")
     } else if (inputSubject.length === 0) {
-        alert("Subject harus diisi!")
+        alert("Subject can't be empty!")
     } else if (inputMessage.length === 0) {
-        alert("Message harus diisi!")
+        alert("Message can't be empty!")
     } else {
         console.log(`Name : ${inputName}\nEmail : ${inputEmail}\nPhone number : ${inputPhone}\nSubject : ${inputSubject}\nMessage : ${inputMessage}`)
 
